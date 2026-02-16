@@ -3,152 +3,175 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ArrowRight, Download, Check } from "lucide-react"
+import { useState, useEffect } from "react"
+
+const HERO_IMAGES = [
+    "/Hero Images/african-american-woman-tailor-talking-smartphone-reading-notebook-atelier.jpg",
+    "/Hero Images/black-woman-running-small-business.jpg",
+    "/Hero Images/medium-shot-black-woman-running-small-business.jpg",
+    "/Hero Images/medium-shot-woman-holding-clay-pot.jpg",
+    "/Hero Images/tired-african-barista-holding-cup-with-coffee-while-leaning-counter-coffee-shop-looking-camera-with-happy-look.jpg"
+]
+
+const FLOATING_BUBBLES = [
+    {
+        id: 1,
+        text: "Hi! 👋 I'm nearYU, your business secretary.",
+        time: "10:42",
+        style: "top-[10%] right-[15%]", // Top right
+        delay: 0,
+        isUser: false
+    },
+    {
+        id: 2,
+        text: "Need to find verified electronics shops in Yaba? Or send a pro invoice? I got you!",
+        time: "10:42",
+        style: "top-[30%] right-[5%]", // Middle right
+        delay: 1.5,
+        isUser: false
+    },
+    {
+        id: 3,
+        text: "Find me phone accessories near Ikeja",
+        time: "10:43",
+        style: "bottom-[35%] right-[25%]", // Middle-bottom leftish
+        delay: 3,
+        isUser: true
+    },
+    {
+        id: 4,
+        text: "Found 12 verified vendors! 🎯\nTop pick: TechHub Accessories (4.9★) - 0.3km away. Tap to view catalog →",
+        time: "10:43",
+        style: "bottom-[10%] right-[5%]", // Bottom right
+        delay: 4.5,
+        isUser: false,
+        isResult: true
+    }
+]
 
 export function HeroSection() {
+    const [currentImage, setCurrentImage] = useState(0)
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % HERO_IMAGES.length)
+        }, 5000)
+        return () => clearInterval(timer)
+    }, [])
+
     return (
-        <section className="relative min-h-[110vh] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
-            {/* Background Image */}
-            <div className="absolute inset-0 h-full w-full overflow-hidden">
-                <div className="absolute inset-0 bg-black/50  z-10" />
-                <Image
-                    src="/hero-bg.jpg"
-                    alt="African business woman using phone"
-                    fill
-                    className="object-cover object-center "
-                    priority
-                />
-            </div>
+        <section className="w-full bg-[#ffffff] p-4 lg:p-6 min-h-[calc(110vh-2rem)] flex items-center justify-center">
+            <div className="relative w-full max-w-[1600px] mt-25 h-[calc(100vh-4rem)] min-h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl mx-auto flex items-center">
+                {/* Background Slider */}
+                <div className="absolute inset-0 z-0">
+                    <AnimatePresence mode="popLayout">
+                        <motion.div
+                            key={currentImage}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 1.5 }}
+                            className="absolute inset-0 w-full h-full"
+                        >
+                            <div className="absolute inset-0 bg-black/40 z-10" />
+                            <Image
+                                src={HERO_IMAGES[currentImage]}
+                                alt="Hero background"
+                                fill
+                                className="object-cover object-center"
+                                priority
+                            />
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
 
-            <div className="container-width flex flex-col items-center text-center z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                        </span>
-                        Live in Lagos & Abuja
+                <div className="container-width relative z-10 grid lg:grid-cols-2 gap-12 items-center h-full w-full px-6 md:px-12 lg:px-20">
+                    {/* Text Content */}
+                    <div className="flex flex-col items-start text-left max-w-2xl">
+                        <motion.h1
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="text-5xl md:text-4xl lg:text-6xl font-medium tracking-tight text-white mb-6"
+                        >
+                            Everything You Need is Just a Chat Away
+                        </motion.h1>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="text-lg md:text-xl text-white/90 mb-8 max-w-xl font-light"
+                        >
+                            Find all you need near you, all inside the app you already use. No downloads. Zero Stress
+                        </motion.p>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+                        >
+                            <Button
+                                size="lg"
+                                className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 text-lg h-14 font-medium transition-all hover:scale-105"
+                            >
+                                Find Vendors Near Me
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="bg-transparent border-white text-white hover:bg-white/10 rounded-full px-8 text-lg h-14 font-medium backdrop-blur-sm transition-all"
+                            >
+                                Register My Business
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Button>
+                        </motion.div>
                     </div>
-                </motion.div>
 
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6 max-w-4xl"
-                >
-                    Your Business Secretary <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
-                        on WhatsApp
-                    </span>
-                </motion.h1>
-
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl"
-                >
-                    Find products, send invoices, and track orders without leaving your favorite chat app. Powered by AI, protected by Escrow.
-                </motion.p>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    className="flex flex-col sm:flex-row items-center gap-4"
-                >
-                    <Button variant="glow" size="lg" className="min-w-[200px] gap-2 shadow-primary/25">
-                        <MessageCircle className="w-5 h-5" />
-                        Chat with nearYU
-                    </Button>
-                    <Button variant="outline" size="lg" className="min-w-[180px] gap-2 hover:bg-secondary">
-                        See How It Works
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="mt-12 flex items-center gap-8 text-sm text-muted-foreground"
-                >
-                    <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-primary" />
-                        <span>No App Download</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-primary" />
-                        <span>Escrow Protected</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-primary" />
-                        <span>Instant Response</span>
-                    </div>
-                </motion.div>
-
-                {/* Mockup */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    className="relative mt-20 w-full max-w-4xl"
-                >
-                    <div className="relative rounded-t-3xl border border-border bg-white shadow-2xl overflow-hidden">
-                        <div className="flex items-center gap-4 px-4 py-3 border-b border-border bg-gray-50/50">
-                            <div className="flex gap-2">
-                                <div className="w-3 h-3 rounded-full bg-red-400" />
-                                <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                                <div className="w-3 h-3 rounded-full bg-green-400" />
-                            </div>
-                            <div className="flex-1 text-center text-xs text-muted-foreground font-mono">
-                                whatsapp.com/nearyu-ai
-                            </div>
-                        </div>
-
-                        <div className="p-4 md:p-8 flex flex-col gap-6 bg-[#efe7dd]">
-                            {/* Chat Messages */}
-                            <div className="flex justify-end">
-                                <div className="bg-[#d9fdd3] text-gray-900 px-4 py-2 rounded-2xl rounded-tr-sm max-w-[80%] shadow-sm">
-                                    Hi! I need to find a supplier for customized eco-friendly packaging in Lagos.
+                    {/* Floating Bubbles (Right Side) */}
+                    <div className="relative h-full min-h-[500px] hidden lg:block w-full">
+                        {FLOATING_BUBBLES.map((bubble, i) => (
+                            <motion.div
+                                key={bubble.id}
+                                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                                animate={{
+                                    opacity: 1,
+                                    scale: 1,
+                                    y: [0, -10, 0]
+                                }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: bubble.delay,
+                                    y: {
+                                        duration: 4,
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                        delay: i * 1.5 // Offset floating animations
+                                    }
+                                }}
+                                className={`absolute ${bubble.style} z-20 max-w-[320px]`}
+                            >
+                                <div className={`
+                                    p-4 rounded-2xl shadow-xl backdrop-blur-sm border border-white/5
+                                    ${bubble.isUser
+                                        ? 'bg-[#005c4b]/95 text-white rounded-tr-sm'
+                                        : 'bg-[#1f2c34]/95 text-white rounded-tl-sm'}
+                                `}>
+                                    <p className="text-sm leading-relaxed whitespace-pre-wrap font-light">
+                                        {bubble.text}
+                                    </p>
+                                    <span className={`text-[10px] block text-right mt-1.5 ${bubble.isUser ? 'text-white/70' : 'text-gray-400'}`}>
+                                        {bubble.time} {bubble.isUser && <span className="text-blue-300 ml-1">✓✓</span>}
+                                    </span>
                                 </div>
-                            </div>
-
-                            <div className="flex justify-start">
-                                <div className="bg-white text-gray-900 px-4 py-3 rounded-2xl rounded-tl-sm max-w-[80%] shadow-sm">
-                                    <p className="mb-2">Found 3 top-rated suppliers for you! 🌿</p>
-                                    <div className="space-y-2">
-                                        <div className="bg-gray-50 p-3 rounded-lg border border-gray-100 flex gap-3">
-                                            <div className="w-12 h-12 bg-gray-200 rounded-md shrink-0" />
-                                            <div>
-                                                <div className="font-semibold text-primary">GreenPack NG</div>
-                                                <div className="text-xs text-gray-500">Verified • 4.9 ★</div>
-                                                <div className="text-xs text-gray-600 mt-1">MOQ: 100 units • ₦850/unit</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="mt-3 flex gap-2">
-                                        <button className="bg-primary/10 text-primary text-xs px-3 py-1.5 rounded-full hover:bg-primary/20 transition-colors">
-                                            View Quote
-                                        </button>
-                                        <button className="bg-primary/10 text-primary text-xs px-3 py-1.5 rounded-full hover:bg-primary/20 transition-colors">
-                                            Chat with Vendor
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            </motion.div>
+                        ))}
                     </div>
-
-                    {/* Abstract Glow behind mockup */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent blur-3xl -z-10" />
-                </motion.div>
+                </div>
             </div>
         </section>
     )

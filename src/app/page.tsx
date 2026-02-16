@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import { HeroSection } from "@/components/sections/hero"
 import { VelocityScroll } from "@/components/sections/velocity-scroll"
+import { ValueProp } from "@/components/sections/value-prop"
 import { FeaturesGrid } from "@/components/sections/features"
 import { UserToggleSection } from "@/components/sections/user-toggle"
 import { BackToTop } from "@/components/ui/back-to-top"
@@ -12,6 +13,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <VelocityScroll />
+      <ValueProp />
       <FeaturesGrid />
       <UserToggleSection />
       <Footer />

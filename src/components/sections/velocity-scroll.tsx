@@ -5,11 +5,8 @@ import { cn } from "@/lib/utils"
 const TICKER_ITEMS = [
     "Use nearYU to find vendors",
     "Send invoices on WhatsApp",
-    "Track orders in real-time",
-    "Escrow payment protection",
     "Connect with local businesses",
-    "Instant customized quotes",
-    "Secure transactions",
+    "Instant customized Invoices",
 ]
 
 export function VelocityScroll() {
@@ -21,7 +18,7 @@ export function VelocityScroll() {
                         {TICKER_ITEMS.map((item, i) => (
                             <span
                                 key={i}
-                                className="mx-4 text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-500 via-gray-300 to-gray-500 opacity-50 whitespace-nowrap"
+                                className="mx-4 text-4xl font-bold text-black whitespace-nowrap"
                             >
                                 {item}
                             </span>
@@ -30,7 +27,7 @@ export function VelocityScroll() {
                         {TICKER_ITEMS.map((item, i) => (
                             <span
                                 key={`dup-${i}`}
-                                className="mx-4 text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-500 via-gray-300 to-gray-500 opacity-50 whitespace-nowrap"
+                                className="mx-4 text-4xl font-bold text-black opacity-50 whitespace-nowrap"
                             >
                                 {item}
                             </span>

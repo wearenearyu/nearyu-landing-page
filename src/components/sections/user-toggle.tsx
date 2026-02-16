@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ShoppingBag, Store, ArrowRight, Check } from "lucide-react"
 import { GlassCard } from "@/components/ui/glass-card"
+import Image from "next/image"
 
 export function UserToggleSection() {
     const [activeTab, setActiveTab] = useState<"buyer" | "vendor">("buyer")
@@ -31,8 +32,8 @@ export function UserToggleSection() {
                                     className="absolute inset-0 bg-primary rounded-full shadow-lg shadow-primary/30"
                                 />
                             )}
-                            <span className="flex items-center gap-2">
-                                <ShoppingBag size={16} /> I'm a Buyer
+                            <span className="relative z-10 flex items-center gap-2">
+                                <ShoppingBag size={16} /> I&apos;m a Buyer
                             </span>
                         </button>
                         <button
@@ -46,8 +47,8 @@ export function UserToggleSection() {
                                     className="absolute inset-0 bg-purple-600 rounded-full shadow-lg shadow-purple-600/30"
                                 />
                             )}
-                            <span className="flex items-center gap-2">
-                                <Store size={16} /> I'm a Vendor
+                            <span className="relative z-10 flex items-center gap-2">
+                                <Store size={16} /> I&apos;m a Vendor
                             </span>
                         </button>
                     </div>
@@ -74,7 +75,7 @@ export function UserToggleSection() {
                                         {[
                                             "Search for products using natural language",
                                             "Get instant quotes from verified nearby sellers",
-                                            "Pay securely via Escrow protection",
+
                                             "Track delivery in real-time on WhatsApp"
                                         ].map((item, i) => (
                                             <li key={i} className="flex items-start gap-3">
@@ -86,36 +87,22 @@ export function UserToggleSection() {
                                         ))}
                                     </ul>
                                     <Button variant="glow" size="lg" className="rounded-full shadow-primary/25">
-                                        Start Shopping Now <ArrowRight className="ml-2 w-4 h-4" />
+                                        Find a Vendor <ArrowRight className="ml-2 w-4 h-4" />
                                     </Button>
                                 </div>
                                 <div className="relative">
-                                    <GlassCard className="aspect-square flex items-center justify-center p-8 bg-gradient-to-br from-primary/5 to-transparent border-primary/10 bg-white/50">
-                                        {/* Abstract Visual for Buyer */}
-                                        <div className="relative w-full h-full">
-                                            <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl" />
-                                            <div className="relative z-10 flex flex-col gap-4 animate-float">
-                                                <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-lg w-3/4 self-end">
-                                                    <div className="h-2 w-20 bg-gray-200 rounded mb-2" />
-                                                    <div className="h-2 w-full bg-gray-100 rounded opacity-50" />
-                                                </div>
-                                                <div className="bg-primary/5 p-4 rounded-xl border border-primary/10 w-3/4 self-start">
-                                                    <div className="h-2 w-24 bg-primary/30 rounded mb-2" />
-                                                    <div className="h-2 w-full bg-primary/10 rounded" />
-                                                </div>
-                                                <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-lg w-3/4 self-end">
-                                                    <div className="h-2 w-16 bg-gray-200 rounded mb-2" />
-                                                    <div className="flex gap-2">
-                                                        <div className="h-10 w-10 rounded bg-gray-100" />
-                                                        <div className="flex-1 space-y-1">
-                                                            <div className="h-2 w-full bg-gray-200 rounded opacity-70" />
-                                                            <div className="h-2 w-2/3 bg-gray-100 rounded opacity-50" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </GlassCard>
+                                    <motion.div
+                                        animate={{ y: [0, -20, 0] }}
+                                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                                        className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl"
+                                    >
+                                        <Image
+                                            src="/young-woman-white-suit-using-phone.jpg"
+                                            alt="Buyer Experience"
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </motion.div>
                                 </div>
                             </motion.div>
                         ) : (
@@ -128,35 +115,18 @@ export function UserToggleSection() {
                                 className="grid md:grid-cols-2 gap-12 items-center"
                             >
                                 <div className="order-2 md:order-1 relative">
-                                    <GlassCard className="aspect-square flex items-center justify-center p-8 bg-gradient-to-bl from-purple-500/5 to-transparent border-purple-500/10 bg-white/50">
-                                        {/* Abstract Visual for Vendor */}
-                                        <div className="relative w-full h-full">
-                                            <div className="absolute inset-0 bg-purple-500/10 rounded-full blur-3xl" />
-                                            <div className="relative z-10 flex flex-col items-center justify-center gap-6 animate-float h-full">
-                                                <div className="w-full bg-white border border-gray-100 rounded-lg p-4 shadow-xl">
-                                                    <div className="flex justify-between items-center mb-4">
-                                                        <div className="text-sm text-gray-500">Total Sales</div>
-                                                        <div className="text-purple-600 text-xs">+12.5%</div>
-                                                    </div>
-                                                    <div className="text-2xl font-bold text-gray-900">₦ 450,000</div>
-                                                    <div className="mt-2 h-1 w-full bg-gray-100 rounded-full overflow-hidden">
-                                                        <div className="h-full w-[70%] bg-purple-500 rounded-full" />
-                                                    </div>
-                                                </div>
-                                                <div className="w-full bg-white border border-gray-100 rounded-lg p-4 shadow-xl translate-x-4">
-                                                    <div className="flex gap-3 items-center">
-                                                        <div className="w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-600">
-                                                            <Store size={14} />
-                                                        </div>
-                                                        <div>
-                                                            <div className="text-sm font-medium text-gray-900">New Order #2841</div>
-                                                            <div className="text-xs text-gray-500">2 mins ago via WhatsApp</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </GlassCard>
+                                    <motion.div
+                                        animate={{ y: [0, -20, 0] }}
+                                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                                        className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl"
+                                    >
+                                        <Image
+                                            src="/customer-purchasing-bio-food-products.jpg"
+                                            alt="Vendor Experience"
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </motion.div>
                                 </div>
                                 <div className="order-1 md:order-2 space-y-8">
                                     <h3 className="text-3xl font-bold text-foreground">
@@ -167,7 +137,6 @@ export function UserToggleSection() {
                                         {[
                                             "Receive qualified leads tailored to your inventory",
                                             "Automated invoicing and receipt generation",
-                                            "Guaranteed payments via Escrow system",
                                             "Manage inventory and orders from WhatsApp"
                                         ].map((item, i) => (
                                             <li key={i} className="flex items-start gap-3">

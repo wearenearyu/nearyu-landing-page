@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { ShoppingBag, Store, ArrowRight, Check } from "lucide-react"
 import { GlassCard } from "@/components/ui/glass-card"
 import Image from "next/image"
@@ -86,9 +87,11 @@ export function UserToggleSection() {
                                             </li>
                                         ))}
                                     </ul>
-                                    <Button variant="glow" size="lg" className="rounded-full shadow-primary/25">
-                                        Find a Vendor <ArrowRight className="ml-2 w-4 h-4" />
-                                    </Button>
+                                    <Link href="https://wa.me/message/W5S3GH63IUWOF1" target="_blank" rel="noopener noreferrer">
+                                        <Button variant="glow" size="lg" className="rounded-full shadow-primary/25">
+                                            Find a Vendor <ArrowRight className="ml-2 w-4 h-4" />
+                                        </Button>
+                                    </Link>
                                 </div>
                                 <div className="relative">
                                     <motion.div
@@ -147,9 +150,11 @@ export function UserToggleSection() {
                                             </li>
                                         ))}
                                     </ul>
-                                    <Button variant="glow" size="lg" className="rounded-full bg-purple-600 hover:bg-purple-700 shadow-purple-500/20 hover:shadow-purple-500/40">
-                                        Register as Vendor <ArrowRight className="ml-2 w-4 h-4" />
-                                    </Button>
+                                    <Link href="https://wa.me/message/VKDHNH2TV322I1" target="_blank" rel="noopener noreferrer">
+                                        <Button variant="glow" size="lg" className="rounded-full bg-purple-600 hover:bg-purple-700 shadow-purple-500/20 hover:shadow-purple-500/40">
+                                            Register as Vendor <ArrowRight className="ml-2 w-4 h-4" />
+                                        </Button>
+                                    </Link>
                                 </div>
                             </motion.div>
                         )}

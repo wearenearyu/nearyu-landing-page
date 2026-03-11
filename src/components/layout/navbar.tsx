@@ -51,13 +51,17 @@ export function Navbar() {
                         How It Works
                     </Link>
                     <div className="flex items-center gap-4 ml-4">
-                        <Button variant="outline" className="border-border text-muted-foreground hover:text-primary hover:border-primary/50">
-                            Become a Vendor
-                        </Button>
-                        <Button variant="glow" className="gap-2 shadow-primary/25">
-                            <MessageCircle size={18} />
-                            Chat Now
-                        </Button>
+                        <Link href="https://wa.me/message/VKDHNH2TV322I1" target="_blank" rel="noopener noreferrer">
+                            <Button variant="outline" className="border-border text-muted-foreground">
+                                Become a Vendor
+                            </Button>
+                        </Link>
+                        <Link href="https://wa.me/message/W5S3GH63IUWOF1" target="_blank" rel="noopener noreferrer">
+                            <Button variant="glow" className="gap-2 shadow-primary/25">
+                                <MessageCircle size={18} />
+                                Chat Now
+                            </Button>
+                        </Link>
                     </div>
                 </div>
 
@@ -115,18 +119,22 @@ export function Navbar() {
 
                         {/* Action Buttons */}
                         <div className="mt-auto mb-12 flex flex-col gap-4">
-                            <Button
-                                variant="outline"
-                                className="w-full justify-center bg-transparent border-white text-white hover:bg-white hover:text-primary h-12 text-lg"
-                            >
-                                Become a Vendor
-                            </Button>
-                            <Button
-                                className="w-full justify-center gap-2 bg-white text-primary hover:bg-white/90 h-12 text-lg font-bold shadow-lg shadow-black/10"
-                            >
-                                <MessageCircle size={20} />
-                                Chat Now
-                            </Button>
+                            <Link href="https://wa.me/message/VKDHNH2TV322I1" target="_blank" rel="noopener noreferrer">
+                                <Button
+                                    variant="outline"
+                                    className="w-full justify-center bg-transparent border-white text-white hover:bg-white hover:text-primary h-12 text-lg"
+                                >
+                                    Become a Vendor
+                                </Button>
+                            </Link>
+                            <Link href="https://wa.me/message/W5S3GH63IUWOF1" target="_blank" rel="noopener noreferrer">
+                                <Button
+                                    className="w-full justify-center gap-2 bg-white text-primary hover:bg-white/90 h-12 text-lg font-bold shadow-lg shadow-black/10"
+                                >
+                                    <MessageCircle size={20} />
+                                    Chat Now
+                                </Button>
+                            </Link>
                         </div>
                     </motion.div>
                 )}

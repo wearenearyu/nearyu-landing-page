@@ -31,7 +31,7 @@ export function FeaturesGrid() {
                             <p className="text-gray-600 text-lg mb-8 max-w-lg">
                                 Get Leads, Chat with customers, and Grow your business without leaving your favorite app.
                             </p>
-                            <Link href="#" className="inline-flex items-center text-primary font-medium hover:underline text-lg">
+                            <Link href="https://wa.me/message/W5S3GH63IUWOF1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-primary font-medium hover:underline text-lg">
                                 Learn More <ArrowRight className="ml-2 w-5 h-5" />
                             </Link>
                         </div>
@@ -55,7 +55,7 @@ export function FeaturesGrid() {
                             <p className="text-gray-600 mb-6">
                                 Create professional invoices, smart and easy right on WhatsApp
                             </p>
-                            <Link href="#" className="inline-flex items-center text-primary font-medium hover:underline">
+                            <Link href="https://wa.me/message/W5S3GH63IUWOF1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-primary font-medium hover:underline">
                                 Learn More <ArrowRight className="ml-2 w-4 h-4" />
                             </Link>
                         </div>
@@ -88,7 +88,7 @@ export function FeaturesGrid() {
                             <p className="text-gray-600 mb-6">
                                 Get discovered by verified customers in your neighborhood. Boost your visibility instantly.
                             </p>
-                            <Link href="#" className="inline-flex items-center text-primary font-medium hover:underline">
+                            <Link href="https://wa.me/message/W5S3GH63IUWOF1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-primary font-medium hover:underline">
                                 Learn More <ArrowRight className="ml-2 w-4 h-4" />
                             </Link>
                         </div>

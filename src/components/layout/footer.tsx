@@ -26,17 +26,11 @@ export function Footer() {
 
                 {/* Social Media Icons */}
                 <div className="flex gap-6 mb-12">
-                    <a href="#" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+                    <a href="https://x.com/nearyu_ai" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
                         <Twitter size={24} />
                     </a>
-                    <a href="#" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+                    <a href="https://www.instagram.com/nearyu_ai/?hl=en" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
                         <Instagram size={24} />
-                    </a>
-                    <a href="#" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
-                        <Linkedin size={24} />
-                    </a>
-                    <a href="#" className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
-                        <Facebook size={24} />
                     </a>
                 </div>
 

@@ -114,21 +114,25 @@ export function HeroSection() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
                         >
-                            <Button
-                                size="lg"
-                                className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 text-lg h-14 font-medium transition-all hover:scale-105"
-                            >
-                                Find Vendors Near Me
-                                <ArrowRight className="ml-2 w-5 h-5" />
-                            </Button>
-                            <Button
-                                variant="outline"
-                                size="lg"
-                                className="bg-transparent border-white text-white hover:bg-white/10 rounded-full px-8 text-lg h-14 font-medium backdrop-blur-sm transition-all"
-                            >
-                                Register My Business
-                                <ArrowRight className="ml-2 w-5 h-5" />
-                            </Button>
+                            <Link href="https://wa.me/message/W5S3GH63IUWOF1" target="_blank" rel="noopener noreferrer">
+                                <Button
+                                    size="lg"
+                                    className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 text-lg h-14 font-medium transition-all hover:scale-105 w-full sm:w-auto"
+                                >
+                                    Find Vendors Near Me
+                                    <ArrowRight className="ml-2 w-5 h-5" />
+                                </Button>
+                            </Link>
+                            <Link href="https://wa.me/message/VKDHNH2TV322I1" target="_blank" rel="noopener noreferrer">
+                                <Button
+                                    variant="outline"
+                                    size="lg"
+                                    className="bg-transparent border-white text-white hover:bg-white/10 rounded-full px-8 text-lg h-14 font-medium backdrop-blur-sm transition-all w-full sm:w-auto"
+                                >
+                                    Register My Business
+                                    <ArrowRight className="ml-2 w-5 h-5" />
+                                </Button>
+                            </Link>
                         </motion.div>
                     </div>
 
